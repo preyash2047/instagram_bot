@@ -114,9 +114,9 @@ class instagramBot():
 #obj creation will lead to the home page        
 obj = instagramBot(email = "glitterdots2020@gmail.com", password = "Googlehome1")
 
-#followers = obj.copy_followers(username="theorganic__tales")
-#temp_list = followers[:10]    
-#obj.follow_from_list(followers_list = temp_list[5:])
+followers = obj.copy_followers(username="theorganic__tales")
+temp_list = followers[:10]    
+obj.follow_from_list(followers_list = temp_list[5:])
 
 obj.follow_from_username(username = "flirt.karo", count = 23,sleep_count = 600)
 
