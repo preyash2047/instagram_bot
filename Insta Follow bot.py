@@ -6,8 +6,11 @@ from re import sub
 from decimal import Decimal
 import threading
 
+class instagramBot():
+    def __init__(self,email,password):
+        
 #input
-email,password = "glitterdots2020@gmail.com", "Googlehome1"
+email,password = "Kanchanjewellers.in", "Keval@123"
 
 #brouser settings
 browserProfile = webdriver.ChromeOptions()
