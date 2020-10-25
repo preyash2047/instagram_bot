@@ -118,7 +118,19 @@ followers = obj.copy_followers(username="theorganic__tales")
 temp_list = followers[:10]    
 obj.follow_from_list(followers_list = temp_list[5:])
 
-obj.follow_from_username(username = "flirt.karo", count = 23,sleep_count = 600)
+obj.follow_from_username(username = "ambaji_jewellers", count = 136,sleep_count = 600)
 
 
-    
+def like_feed(count):
+    obj.browser.get('https://www.instagram.com/')
+    time.sleep(obj.normal_wait_time)
+    #count = 20
+    obj.liked_post = 0
+    while obj.liked_post <= count:
+    obj.select_postes = obj.browser.find_elements_by_class_name("_9AhH0")
+    for post in obj.select_postes:
+        post.click()
+        post.click()
+        obj.liked_post += 1
+        time.sleep(obj.normal_wait_time)
+        
