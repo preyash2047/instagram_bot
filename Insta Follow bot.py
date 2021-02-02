@@ -10,7 +10,8 @@ class instagramBot():
     def __init__(self,email,password):
         
 #input
-email,password = "Kanchanjewellers.in", "Keval@123"
+#email,password = "Kanchanjewellers.in", "Keval@123"
+email,password = "tharki.university", "@Googlehome1"        
 
 #brouser settings
 browserProfile = webdriver.ChromeOptions()
@@ -33,13 +34,15 @@ btn2 = browser.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/butto
 btn2.click()    
     
 #getting list of followers
-coppyFollowersFrom = ["fashionworldjewellery", "jewellery.creation20", "jewellery_house_1"]
+#coppyFollowersFrom = ["fashionworldjewellery", "jewellery.creation20", "jewellery_house_1"]
+coppyFollowersFrom = ["bc__university"]
 browser.get('https://www.instagram.com/'+str(coppyFollowersFrom[0]))
 time.sleep(3)
 followersCount = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[2]/a/span")
 followersBtn = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/ul/li[2]/a")
 followersBtn.click()
-for i in range(int(int(followersCount.text)/11)):
+#for i in range(int(int(followersCount.text)/11)):
+for i in range(int(9350/11)):
     time.sleep(random.randint(1, 2))
     element_inside_popup = browser.find_element_by_xpath('//div[@class="isgrP"]//a')
     element_inside_popup.send_keys(Keys.END)
@@ -47,20 +50,26 @@ for i in range(int(int(followersCount.text)/11)):
 #grab followers    
 followButton = browser.find_elements_by_class_name('FPmhX')    
 listofusers = [i.text for i in followButton]
+print(len(listofusers))
 requestSentCount = 0
 #staring Following people with private account
-for i in listofusers:   
+for i in listofusers[30:100]:   
     time.sleep(random.randint(0, 6))
     browser.get('https://www.instagram.com/'+str(i))
     time.sleep(3)
     try:
-        privateOrNot = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/div/article/div/div/h2")
-        if privateOrNot.text.split()[-1] == "Private":
-            followbtn = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[1]/button")
-            followbtn.click()
-            requestSentCount += 1
+        #privateOrNot = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/div/article/div/div/h2")
+        #if privateOrNot.text.split()[-1] == "Private":
+        followbtn = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[1]/div/div/div/span/span[1]/button")
+        followbtn.click()
+        requestSentCount += 1
+        time.sleep(2)
+        if browser.find_element_by_xpath("/html/body/div[5]/div/div/div/div[2]/button[1]").text == "Report a Problem":
+            print("Stoped by Instagram")
+            time.sleep(random.randint(400,500))
     except:
         pass
+
 
     
 #follow users from home page
