@@ -53,7 +53,7 @@ listofusers = [i.text for i in followButton]
 print(len(listofusers))
 requestSentCount = 0
 #staring Following people with private account
-for i in range(300,350):
+for i in range(570,700):
     print(i)
     i = listofusers[i]
     time.sleep(random.randint(0, 6))
