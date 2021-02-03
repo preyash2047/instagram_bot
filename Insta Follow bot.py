@@ -29,7 +29,7 @@ passwordInput.send_keys(Keys.ENTER)
 #click on miscelinous buttons
 btn1 = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button")
 btn1.click()
-time.sleep(2)
+time.sleep(2) 
 btn2 = browser.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]")
 btn2.click()    
     
@@ -53,14 +53,16 @@ listofusers = [i.text for i in followButton]
 print(len(listofusers))
 requestSentCount = 0
 #staring Following people with private account
-for i in listofusers[30:100]:   
+for i in range(300,350):
+    print(i)
+    i = listofusers[i]
     time.sleep(random.randint(0, 6))
     browser.get('https://www.instagram.com/'+str(i))
     time.sleep(3)
     try:
         #privateOrNot = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/div/article/div/div/h2")
         #if privateOrNot.text.split()[-1] == "Private":
-        followbtn = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[1]/div/div/div/span/span[1]/button")
+        followbtn = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/header/section/div[1]/div[1]/div/div/button")
         followbtn.click()
         requestSentCount += 1
         time.sleep(2)
